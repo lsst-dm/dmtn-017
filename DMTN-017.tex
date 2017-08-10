@@ -19,7 +19,7 @@
 \maketitle
 
 \section{Overview}
-Like any medium, the Earth's atmosphere refracts incident light, which for an observer on the Earth's surface results in a deflection of the apparent position of sources towards zenith by about 1 arcsecond per degree of the source from zenith. This bulk effect of refraction is well understood in astronomical applications and is easily accounted for most of the optical through radio wavelengths where the index of refraction is constant, but towards the blue end of the optical spectrum atmospheric dispersion results in increasing refraction. As a result, photons from the same source but different wavelengths that pass through the same filter of a telescope will have slightly different degrees of refraction and will land on different locations of the detector, an effect called Differential Chromatic Refraction (DCR). Differential Chromatic Refraction was first raised as an issue for spectrometry in \cite{Filippenko1982}, where the problem was framed as a loss of flux in slit spectrometers. The issue has now become important for imaging cameras as well, though, because high-resolution cameras such as the LSST will experience significant PSF smearing in the u and g bands (Figure  \ref{Fig:DCR-wavelength-ZA}).
+Like any medium, the Earth's atmosphere refracts incident light, which for an observer on the Earth's surface results in a deflection of the apparent position of sources towards zenith by about 1 arcsecond per degree of the source from zenith. This bulk effect of refraction is well understood in astronomical applications and is easily accounted for most of the optical through radio wavelengths where the index of refraction is constant, but towards the blue end of the optical spectrum atmospheric dispersion results in increasing refraction. As a result, photons from the same source but different wavelengths that pass through the same filter of a telescope will have slightly different degrees of refraction and will land on different locations of the detector, an effect called Differential Chromatic Refraction (DCR). Differential Chromatic Refraction was first raised as an issue for spectrometry in \cite{1982PASP...94..715F}, where the problem was framed as a loss of flux in slit spectrometers. The issue has now become important for imaging cameras as well, though, because high-resolution cameras such as the LSST will experience significant PSF smearing in the u and g bands (Figure  \ref{Fig:DCR-wavelength-ZA}).
 
 
 \begin{figure*}
@@ -99,13 +99,13 @@ A quick summary of and notes on the existing literature covering DCR. Each refer
 	\begin{center}
 		\subfigure[Difference image with no DCR correction]{\includegraphics[height=2.8in]{9903215v1_f5a.png}}
 		\subfigure[Difference image with DCR correction]{\includegraphics[height=2.8in]{9903215v1_f5b.png}}
-		\caption{(\citeauthor{AlcockDiffIm1999} Fig. 5.)— "The effect of differential refraction on difference images. Left image is a difference image without applying any correction for differential refraction effects. The right image is the same image with our correction technique applied. The scale of the noise structures is much reduced although not completely removed. The two images are 100′′ ×100′′. The residual object in the centre is due to a variable star"}
+		\caption{(\citeauthor{1999ApJ...521..602A} Fig. 5.)— "The effect of differential refraction on difference images. Left image is a difference image without applying any correction for differential refraction effects. The right image is the same image with our correction technique applied. The scale of the noise structures is much reduced although not completely removed. The two images are 100′′ ×100′′. The residual object in the centre is due to a variable star"}
 		\label{Fig:Alcock5}
 	\end{center}
 \end{figure}
 
 
-\subsection{\cite{AlcockDiffIm1999}}
+\subsection{\cite{1999ApJ...521..602A}}
 \begin{itemize}
 	\item Investigation of DiffIm for MaCHO search.
 	\item This is the only reference I could find that described a method
@@ -131,11 +131,11 @@ A quick summary of and notes on the existing literature covering DCR. Each refer
 	\item This is the function implemented in `palpy` which is used by
 	some (but not all?) code in the `sims` stack.
 	\item Uses a model atmosphere with temperature and pressure gradients,
-	integrated to the surface.  This I believe is different from \cite{Filippenko1982}
+	integrated to the surface.  This I believe is different from \cite{1982PASP...94..715F}
 	which assumes a single refractive surface.
 \end{itemize}
 
-\subsection{\cite{Meyers2015}}
+\subsection{\cite{2015ApJ...807..182M}}
 
 \begin{itemize}
 	\item Estimates of DCR on weak lensing measurements.
@@ -154,7 +154,7 @@ A quick summary of and notes on the existing literature covering DCR. Each refer
 %	\item Check and incorporate DCR code from their chroma package into sims pipelines
 %\end{itemize}
 
-\subsection{\cite{Chambers2005}}
+\subsection{\cite{2005ASPC..338..134C}}
 
 \begin{itemize}
 	\item Updated summary of (more accurate?) astrometric transformations including DCR.
@@ -170,13 +170,13 @@ A quick summary of and notes on the existing literature covering DCR. Each refer
           not find it.
 \end{itemize}
 
-\subsection{\cite{AlejandroPlazas2012}}
+\subsection{\cite{2012PASP..124.1113A}}
 \begin{itemize}
 	\item Investigates the effect of DCR on weak lensing measurements through the second moment of galaxy shape measurements.
 	\item Finds that "Using standard galaxy and stellar spectral templates we calculate the resultant errors in the griz bands, and find that atmospheric dispersion shear systematics, left uncorrected, are up to 6 and 2 times larger in g and r bands, respectively, than the thresholds at which they become significant contributors to the DES error budget, but can be safely ignored in i and z bands. For the stricter \textit{LSST} requirements, the factors are about 30, 10, and 3 in g, r, and i bands, respectively"
 \end{itemize}
 
-\subsection{\cite{Stone1996}}
+\subsection{\cite{1996PASP..108.1051S}}
 \begin{itemize}
 	\item A good reference giving equations for refraction
           including the effect of temperature, pressure, and water
@@ -224,7 +224,7 @@ To calculate refraction, we need to know the local index of refraction of air $n
 	P_w =& RH\times 10^{-4} \times e^{(77.3450 + 0.0057 T - 7235.0/T)}/T^{8.2} \nonumber
 \end{align}
 
-where the parameters $D_s$ and $D_w$ are the density factors for dry air and water vapor, respectively, taken from \cite{Owens:67}.
+where the parameters $D_s$ and $D_w$ are the density factors for dry air and water vapor, respectively, taken from \cite{1967ApOpt...6...51O}.
 
 The ratio of local gravity at the observing site to $g = 9.81 m/s^2$ is given by
 \begin{equation}
@@ -241,7 +241,7 @@ where $m$ is the average mass of molecules in the atmosphere, $R_\oplus$ is the 
 
 
 
-\subsection{\cite{Filippenko1982}}
+\subsection{\cite{1982PASP...94..715F}}
 \begin{itemize}
 	\item Original paper posing DCR as a problem to be addressed. Mostly of historical interest.
 	\item Focused on the effect on spectrometers, with the
@@ -249,16 +249,16 @@ where $m$ is the average mass of molecules in the atmosphere, $R_\oplus$ is the 
 	parallactic angle. 
 \end{itemize}
 
-\subsection{\cite{Cuby1998}}
+\subsection{\cite{1998SPIE.3355...36C}}
 \begin{itemize}
-	\item As with \citeauthor{Filippenko1982}, concerned with flux loss in slit spectrometers. 
+	\item As with \citeauthor{1982PASP...94..715F}, concerned with flux loss in slit spectrometers. 
 	\item Discusses observing strategies for spectrometers to keep flux loss $< 20\%$ at $z_0<50^\circ$
 \end{itemize}
 
-\subsection{\cite{Tomaney1996}}
-\subsection{\cite{Mangum2015}}
-\subsection{\cite{Auer2000}}
+\subsection{\cite{1996AJ....112.2872T}}
+\subsection{\cite{2015PASP..127...74M}}
+\subsection{\cite{2000AJ....119.2472A}}
 
-\bibliography{DCR_references,lsst,lsst-dm,refs,books,refs_ads}
+\bibliography{lsst,lsst-dm,refs,books,refs_ads}
 
 \end{document}
